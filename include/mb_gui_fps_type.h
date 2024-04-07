@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 00:25:27 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2024/04/08 00:02:32 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2024/04/08 02:38:52 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdint.h>
 # include <stdbool.h>
 
-# if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+# ifdef _WIN32
 
 #  include <windows.h>
 
@@ -26,9 +26,14 @@
 
 # endif
 
-typedef bool	t_err;
+# ifndef MB_ERR_DEFINED
+#  define MB_ERR_DEFINED
 
-# if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+typedef bool	t_mb_err;
+
+# endif
+
+# ifdef _WIN32
 
 // TODO
 

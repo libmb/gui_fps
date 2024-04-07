@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 00:25:27 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2024/04/08 00:02:50 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2024/04/08 02:34:08 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@
  *
  * @param us_per_frame microseconds per frame you want
  */
-t_err	mb_gui_fps_init(t_mb_gui_fps *out, uint32_t us_per_frame);
+t_mb_err	mb_gui_fps_init(t_mb_gui_fps *out, uint32_t us_per_frame);
 
 /**
  * not thread safe
  */
-t_err	mb_gui_fps_finalize(t_mb_gui_fps self);
+t_mb_err	mb_gui_fps_finalize(t_mb_gui_fps self);
 
 /**
  * @brief block until next frame
@@ -36,27 +36,27 @@ t_err	mb_gui_fps_finalize(t_mb_gui_fps self);
  *
  * @return true if interrupted
  */
-t_err	mb_gui_fps_block(t_mb_gui_fps *self);
+t_mb_err	mb_gui_fps_block(t_mb_gui_fps *self);
 
 /**
  * @brief check if render now is appropriate
  *
  * not thread safe
  */
-t_err	mb_gui_fps_is_blocked(t_mb_gui_fps *self, bool *out);
+t_mb_err	mb_gui_fps_is_blocked(t_mb_gui_fps *self, bool *out);
 
 /**
  * @brief not needed to be called. call after long time render, or to skip frame
  *
  * not thread safe
  */
-t_err	mb_gui_fps_mark_as_rendered(t_mb_gui_fps *self);
+t_mb_err	mb_gui_fps_mark_as_rendered(t_mb_gui_fps *self);
 
 /**
  * @brief get minimum time to next render in microsecond
  *
  * not thread safe
  */
-t_err	mb_gui_fps_time_to_next_render(t_mb_gui_fps *self, uint32_t *out);
+t_mb_err	mb_gui_fps_time_to_next_render(t_mb_gui_fps *self, uint32_t *out);
 
 #endif
