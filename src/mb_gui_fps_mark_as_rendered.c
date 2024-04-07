@@ -6,20 +6,16 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:29:56 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2024/04/07 23:43:08 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2024/04/08 01:04:01 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mb_gui_fps.h"
 
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
-
 // TODO
-
 #else
-
 # include <sys/time.h>
-
 #endif
 
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
