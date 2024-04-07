@@ -6,13 +6,14 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 00:25:27 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2024/04/07 17:58:44 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2024/04/08 00:02:32 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MB_GUI_FPS_TYPE_H
 # define MB_GUI_FPS_TYPE_H
 
+# include <stdint.h>
 # include <stdbool.h>
 
 # if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
@@ -21,7 +22,7 @@
 
 # else
 
-#  include <unistd.h>
+#  include <sys/time.h>
 
 # endif
 
@@ -36,7 +37,8 @@ typedef bool	t_err;
 typedef struct s_mb_gui_fps
 {
 	struct timeval	last_rendered_time;
-	size_t			us_per_frame;
+	uint32_t		us_per_frame;
+	char			_pad[sizeof(struct timeval) - sizeof(uint32_t)];
 }	t_mb_gui_fps;
 
 # endif

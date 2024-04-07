@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 00:25:27 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2024/04/07 18:41:11 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2024/04/08 00:02:50 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
  *
  * @param us_per_frame microseconds per frame you want
  */
-t_err	mb_gui_fps_init(t_mb_gui_fps *out, size_t us_per_frame);
+t_err	mb_gui_fps_init(t_mb_gui_fps *out, uint32_t us_per_frame);
 
 /**
  * not thread safe
@@ -51,5 +51,12 @@ t_err	mb_gui_fps_is_blocked(t_mb_gui_fps *self, bool *out);
  * not thread safe
  */
 t_err	mb_gui_fps_mark_as_rendered(t_mb_gui_fps *self);
+
+/**
+ * @brief get minimum time to next render in microsecond
+ *
+ * not thread safe
+ */
+t_err	mb_gui_fps_time_to_next_render(t_mb_gui_fps *self, uint32_t *out);
 
 #endif
