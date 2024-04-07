@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:29:56 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2024/04/08 00:40:15 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2024/04/08 00:50:20 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_err	mb_gui_fps_time_to_next_render(t_mb_gui_fps *self, uint32_t *out)
 		*out = 0;
 		return (false);
 	}
-	*out = (uint32_t)(tv.tv_sec - self->last_rendered_time.tv_sec * 1000000
+	*out = (uint32_t)((tv.tv_sec - self->last_rendered_time.tv_sec) * 1000000
 			+ tv.tv_usec - self->last_rendered_time.tv_usec);
 	return (false);
 }
