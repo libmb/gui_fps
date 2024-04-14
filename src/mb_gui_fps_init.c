@@ -14,15 +14,20 @@
 
 #ifdef _WIN32
 
-// TODO
+t_mb_err	mb_gui_fps_init(t_mb_gui_fps *out, uint32_t ms_per_frame)
+{
+	out->last_rendered_time.time = 0;
+	out->ms_per_frame = ms_per_frame;
+	return (false);
+}
 
 #else
 
-t_mb_err	mb_gui_fps_init(t_mb_gui_fps *out, uint32_t us_per_frame)
+t_mb_err	mb_gui_fps_init(t_mb_gui_fps *out, uint32_t ms_per_frame)
 {
 	out->last_rendered_time.tv_sec = 0;
 	out->last_rendered_time.tv_usec = 0;
-	out->us_per_frame = us_per_frame;
+	out->ms_per_frame = ms_per_frame;
 	return (false);
 }
 

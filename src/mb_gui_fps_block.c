@@ -13,14 +13,22 @@
 #include "mb_gui_fps.h"
 
 #ifdef _WIN32
-// TODO
+# include <windows.h>
 #else
 # include <unistd.h>
 #endif
 
 #ifdef _WIN32
 
-// TODO
+t_mb_err	mb_gui_fps_block(t_mb_gui_fps *self)
+{
+	uint32_t	block_time;
+
+	if (mb_gui_fps_time_to_next_render(self, &block_time))
+		return (true);
+	Sleep(block_time);
+	return (false);
+}
 
 #else
 
@@ -30,7 +38,7 @@ t_mb_err	mb_gui_fps_block(t_mb_gui_fps *self)
 
 	if (mb_gui_fps_time_to_next_render(self, &block_time))
 		return (true);
-	if (usleep(block_time))
+	if (usleep(block_time * 1000))
 		return (true);
 	return (false);
 }

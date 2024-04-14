@@ -1,5 +1,7 @@
 /.cache
+/builddir
 /libmb_gui_fps.a
+/mb_gui_fps.lib
 /compile_commands.json
 /*.tmp
 /out

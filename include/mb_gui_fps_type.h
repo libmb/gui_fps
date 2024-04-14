@@ -17,13 +17,9 @@
 # include <stdbool.h>
 
 # ifdef _WIN32
-
-#  include <windows.h>
-
+#  include <sys/timeb.h>
 # else
-
 #  include <sys/time.h>
-
 # endif
 
 # ifndef MB_ERR_DEFINED
@@ -35,14 +31,19 @@ typedef bool	t_mb_err;
 
 # ifdef _WIN32
 
-// TODO
+typedef struct s_mb_gui_fps
+{
+	struct timeb	last_rendered_time;
+	uint32_t		ms_per_frame;
+	char			_pad[sizeof(struct timeb) - sizeof(uint32_t)];
+}	t_mb_gui_fps;
 
 # else
 
 typedef struct s_mb_gui_fps
 {
 	struct timeval	last_rendered_time;
-	uint32_t		us_per_frame;
+	uint32_t		ms_per_frame;
 	char			_pad[sizeof(struct timeval) - sizeof(uint32_t)];
 }	t_mb_gui_fps;
 

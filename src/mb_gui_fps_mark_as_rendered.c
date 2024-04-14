@@ -12,15 +12,17 @@
 
 #include "mb_gui_fps.h"
 
-#ifdef _WIN32
-// TODO
-#else
+#ifndef _WIN32
 # include <sys/time.h>
 #endif
 
 #ifdef _WIN32
 
-// TODO
+t_mb_err	mb_gui_fps_mark_as_rendered(t_mb_gui_fps *self)
+{
+	ftime(&self->last_rendered_time);
+	return (false);
+}
 
 #else
 

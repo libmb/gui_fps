@@ -20,14 +20,9 @@
  *
  * not thread safe
  *
- * @param us_per_frame microseconds per frame you want
+ * @param ms_per_frame milliseconds per frame you want
  */
-t_mb_err	mb_gui_fps_init(t_mb_gui_fps *out, uint32_t us_per_frame);
-
-/**
- * not thread safe
- */
-t_mb_err	mb_gui_fps_finalize(t_mb_gui_fps self);
+t_mb_err	mb_gui_fps_init(t_mb_gui_fps *out, uint32_t ms_per_frame);
 
 /**
  * @brief block until next frame
@@ -53,7 +48,7 @@ t_mb_err	mb_gui_fps_is_blocked(t_mb_gui_fps *self, bool *out);
 t_mb_err	mb_gui_fps_mark_as_rendered(t_mb_gui_fps *self);
 
 /**
- * @brief get minimum time to next render in microsecond
+ * @brief get minimum time to next render in milliseconds
  *
  * not thread safe
  */

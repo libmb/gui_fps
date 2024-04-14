@@ -12,12 +12,6 @@
 
 #include "mb_gui_fps.h"
 
-#ifdef _WIN32
-
-// TODO
-
-#else
-
 t_mb_err	mb_gui_fps_is_blocked(t_mb_gui_fps *self, bool *out)
 {
 	uint32_t	block_time;
@@ -27,5 +21,3 @@ t_mb_err	mb_gui_fps_is_blocked(t_mb_gui_fps *self, bool *out)
 	*out = block_time != 0;
 	return (false);
 }
-
-#endif
